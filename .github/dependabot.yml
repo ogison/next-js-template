@@ -1,6 +1,5 @@
 version: 2
 updates:
-  # npm dependencies
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -8,22 +7,20 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Asia/Tokyo"
-    open-pull-requests-limit: 10
-    commit-message:
-      prefix: "chore(deps)"
-    labels:
-      - "dependencies"
 
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "Asia/Tokyo"
-    commit-message:
-      prefix: "chore(deps)"
+    open-pull-requests-limit: 5
+
+    # メジャーは除外
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+
     labels:
       - "dependencies"
-      - "github-actions"
+      - "dependabot"
+      - "automerge"
+
+    commit-message:
+      prefix: "chore"
+      include: "scope"
