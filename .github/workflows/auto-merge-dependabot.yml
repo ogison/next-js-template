@@ -16,6 +16,11 @@ jobs:
     if: github.event.pull_request.user.login == 'dependabot[bot]'
 
     steps:
+      - name: Ensure automerge label exists
+        run: gh label create "automerge" --description "Automatically merged by workflow" --color "0E8A16" --force
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Add automerge label
         run: gh pr edit "$PR_URL" --add-label "automerge"
         env:
