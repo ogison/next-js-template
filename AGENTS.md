@@ -41,3 +41,8 @@ pnpm format:check
 - Tailwind CSS v4
 - shadcn/ui components
 - Prettier for code formatting
+
+## Verification Workflow
+
+- After making changes, run `pnpm run format`, `pnpm run lint`, and `pnpm run build`.
+- If any command fails, fix the issues and repeat verification until all commands complete successfully.
