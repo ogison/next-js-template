@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
   pull-requests: write
 
 jobs:
@@ -19,14 +18,6 @@ jobs:
       GH_REPO: ${{ github.repository }}
 
     steps:
-      - name: Ensure automerge label exists
-        run: gh label create "automerge" --description "Automatically merged by workflow" --color "0E8A16" --force
-
-      - name: Add automerge label
-        run: gh pr edit "$PR_URL" --add-label "automerge"
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-
       - uses: dependabot/fetch-metadata@v2
         id: metadata
         with:
