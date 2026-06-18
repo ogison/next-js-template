@@ -14,3 +14,7 @@ build
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# Skill development artifacts (eval runs, generated reports)
+.agents/skills/*-workspace
+**/__pycache__

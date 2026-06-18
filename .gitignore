@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# skill development artifacts (eval workspaces, python cache)
+.agents/skills/*-workspace/
+**/__pycache__/
